@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!--
+1.想让vue工作，就必须创建一个vue实例，且要指定el选项，指明要管理什么html元素
+2.root容器里面的代码依然符合html规范
+3.root容器里面的代码被称为vue实例模板
+4.容器和实例之间的关系是一一对应的
+5.双括号中要写js表达式
+-->
+
+<!--容器-->
+<div id="root">
+    <h1>hello {{name}}</h1>
+    <h1>我的年龄是 {{age}}</h1>
+</div>
+
+<script type="text/javascript">
+    // vue实例
+    const vue = new Vue({
+        el: '#root',
+        data: {
+            name: 'zhangsan',
+            age: 18
+        }
+    });
+</script>
+
+</body>
+</html>
