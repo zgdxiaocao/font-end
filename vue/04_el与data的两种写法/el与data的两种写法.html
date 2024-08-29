@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="root">
+    <h1>你好，{{name}}</h1>
+</div>
+<!--data 与 el的两种写法
+    1.el
+        a.new Vue时候配置el属性
+        b.先创建Vue实例，再通过vm.$mount('#root')指定el
+    2.data
+        a.对象式
+        b.函数式
+        组件必须用函数方式
+    3.原则
+        由vue管理的函数，一定不要用箭头函数，一旦写了箭头函数，this就不再是vue实例了。-->
+
+<script type="text/javascript">
+    // el的两种写法
+    // const vue = new Vue({
+    //     // el: '#root', // 第一种写法
+    //     data: {
+    //         name: 'zhangsan',
+    //         age: 18
+    //     }
+    // });
+    //
+    // vue.$mount('#root'); // 第二种写法
+
+    const vue = new Vue({
+        el: '#root',
+        // data的第一种写法，对象式
+        // data: {
+        //     name: 'zhangsan',
+        //     age: 18
+        // }
+
+        // data的第二种写法，函数式
+        // data:function () {
+        //     return {
+        //         name: 'zhangsan',
+        //         age: 18
+        //     }
+        // }
+        data() {
+            console.log("@@@", this);
+            return {
+                name: 'zhangsan',
+                age: 18
+            }
+        }
+    });
+
+
+    let Hello = {
+        name: "lisi",
+        hello() {
+            console.log("hello" + this);
+        }
+    }
+
+    Hello.hello()
+
+</script>
+</body>
+</html>
