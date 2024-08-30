@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!--
+  MVVM模型
+    1.M：模型（Model）:data中的数据
+    2.V：视图（View）: 模板代码
+    3.VM: 试图模型（ViewModel）:Vue实例
+    框架做的事情就是将数据和视图进行关联，让数据驱动视图的变化。不同框架有不同的语法这些语法都是这个效果。
+
+   观察发现：
+    1. data中所有的属性，最后都出现在vm身上
+    2. vm身上所有的属性 及 Vue原型上所有的属性，在Vue模板中都可以直接使用-->
+
+
+<div id="root">
+    <h1>姓名：{{name}}</h1>
+    <h2>年龄：{{age}}</h2>
+    <a :href='url'>点我去百度</a>
+</div>
+<script>
+    const vm = new Vue({
+        el: '#root',
+        data() {
+            return {
+                name: 'zhangsan',
+                age: "18",
+                url: "https://www.baidu.com"
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>
