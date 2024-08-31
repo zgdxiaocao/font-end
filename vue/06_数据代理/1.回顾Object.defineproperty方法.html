@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object.defineProperties</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    let number = 19;
+    let person = {
+        name: 'zhangsan',
+        sex: 'male',
+    }
+
+
+    Object.defineProperty(person, 'age', {
+        enumerable: true, // 控制是否可以被枚举
+        writeable: true, // 是否可以被修改
+        configurable: true, // 是否可以被删除
+        get() {
+            console.log("有人读取了age属性");
+            return number;
+        },
+        set(value) {
+            console.log("有人修改了age属性，新值是：" + value);
+            number = value;
+        },
+    });
+    console.log(person);
+
+
+</script>
+
+</body>
+</html>
