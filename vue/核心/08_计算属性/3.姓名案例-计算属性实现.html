@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<!--vue的插值语法里面的内容是函数表达式-->
+<!--vue data中的数据被修改了，对应的模板也会重新加载 -->
+<!--data中所有的数据vue都认为是属性-->
+<!--vue将data存储到自身的_data中，然后再通过数据代理代理出来-->
+
+<div id="root">
+    姓：<input type="text" v-model="firstname"><br>
+    名：<input type="text" v-model="lastname"><br>
+    姓名：<span>{{fullName}}</span>
+
+
+</div>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            firstname: "zhang",
+            lastname: "san"
+        },
+        // 完整方式
+        /*computed: {
+            fullName:{
+                get() {
+                    return this.firstname + "-" + this.lastname;
+                },
+                set(value) {
+                    const valueArr = value.split("-");
+                    this.firstname = valueArr[0];
+                    this.lastname = valueArr[1];
+                }
+            }
+        }*/
+
+        // 简写方式 如果只有get 可以简写成这种方式
+        computed: {
+            fullName() {
+                return this.firstname + "-" + this.lastname;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

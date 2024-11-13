@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<!--事件的基本使用
+    1.使用v-on:xxx 或者@xxx绑定事件，其中xxx是事件名
+    2.事件的回调对象需要配置在methods中，最终会在vm中
+    3.methods中配置的函数，不要用箭头函数，否则this就不是vm了
+    4.methods中配置的函数，都是被vm管理的函数，this的指向是vm或者 组件实例对象
+    5.@click="demo"和@click="demo($event)" 效果是一样的，但是后者可以传参-->
+<div id="root">
+    <button @click="deleteInstance($event, 66)">删除</button>
+</div>
+
+
+<script type="text/javascript">
+
+    const vm = new Vue({
+        el: '#root',
+        data() {
+            return {
+                name: 'zhangsan',
+                age: 18
+            }
+        },
+        methods: {
+            // 删除实例信息
+            deleteInstance(event, instanceId) {
+                alert("确认" + event.target.innerText + instanceId);
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>
